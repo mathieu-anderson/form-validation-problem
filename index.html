@@ -146,10 +146,11 @@
         }
 
     </style>
+    <script src="script.js"></script>
 </head>
 
 <body>
-    <form method='post' action=''>
+    <form method='post' id='awesomeForm' action='' onsubmit='return validate()'>
         <h1>Fill out this awesome form</h1>
         <fieldset>
             <h3>Your details</h3>
@@ -163,7 +164,7 @@
                 <label class='label' for='password'>
                     Password
                 </label>
-                <input class='error' type='password' id='password' name='username'>
+                <input type='password' id='password' name='password'>
             </p>
         </fieldset>
 
