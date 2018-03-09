@@ -1,43 +1,51 @@
 
+function setErrorClass (id) {
+  document.querySelector(id).parentNode.className = 'error'
+}
+
+function isChecked (id) {
+  return document.querySelector(id).checked
+}
+
 function validate () {
-//email validation variables
+  //email validation variables
   const emailValue = document.getElementById('email').value;
   const atPosition = emailValue.indexOf('@')
   const dotPosition = emailValue.lastIndexOf('.')
-//password validation variable
+  //password validation variable
   const password = document.querySelector('#password').value
-//colour validation variables
+  //colour validation variables
   const colourList = document.querySelector('#colour')
   const colour = colourList.options[colourList.selectedIndex].value
-//animal validation variables
+  //animal validation variables
   const checked = [
-    document.querySelector('#bear').checked,
-    document.querySelector('#tiger').checked,
-    document.querySelector('#snake').checked,
-    document.querySelector('#donkey').checked
+    isChecked('#bear'),
+    isChecked('#tiger'),
+    isChecked('#snake'),
+    isChecked('#donkey')
   ]
   //type of tiger validation variable
   const tigerType = document.querySelector('#tiger_type').value
 
   //email validation
   if (atPosition < 1 || dotPosition - atPosition < 2) {
-    document.querySelector('#email').parentNode.className = 'error'
+    setErrorClass('#email')
     return false
   //password validation
   } else if (password.length < 8) {
-    document.querySelector('#password').parentNode.className = 'error'
+    setErrorClass('#password')
     return false
   //colour validation
   } else if (!colour) {
-    document.querySelector('#colour').parentNode.className = 'error'
+    setErrorClass('#colour')
     return false
   //animal validation
   } else if (checked.filter(function (animal) { return animal }).length < 2) {
-    document.querySelector('#bear').parentNode.className = 'error'
+    setErrorClass('#bear')
     return false
   //type of tiger validation
   } else if (checked[1] && !tigerType.length) {
-    document.querySelector('#tiger_type').parentNode.className = 'error'
+    setErrorClass('#tiger_type')
     return false
   }
 }
