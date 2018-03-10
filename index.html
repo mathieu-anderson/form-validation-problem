@@ -141,7 +141,7 @@
         .error > span {
             color: red;
         }
-
+        .error > select,
         .error > input {
             border-color: red;
         }
@@ -172,7 +172,7 @@
                     Password
                 </label>
                 <input class='error' type='password' id='password' name='password' required aria-required='true' minlength='8'>
-                <span id='password-error-message' class='hidden'>Your password is too short</span>
+                <span id='password-error-message' class='hidden'>Your password is too short (< 8 characters)</span>
             </p>
         </fieldset>
 
@@ -190,9 +190,10 @@
                     <option value='black'>Black</option>
                     <option value='brown'>Brown</option>
                 </select>
+                <span id='colour-error-message' class='hidden'>Pick your favourite</span>
             </p>
             <p>
-                <span class='label'>
+                <span class='label' id ='animal'>
                     Animal
                 </span>
 
@@ -216,12 +217,13 @@
                      Donkey
                 </label>
 
+                <span id='animal-error-message' class='hidden'>Pick two favourites</span>
             </p>
             <p>
                 <label class='label' for='tiger_type'>
                     Type of tiger
                 </label>
-                <input type='text' name='tiger_type' id='tiger_type' required aria-required='true'>
+                <input type='text' name='tiger_type' id='tiger_type'>
                 <span id='tiger_type-error-message' class='hidden'>What's your tiger type?</span>
             </p>
         </fieldset>
